@@ -1,0 +1,6 @@
+id=dufsbox
+name=DufsBox
+version=1.0.0
+versionCode=1
+author=Alyosha8848
+description=把任意目录变成局域网网页文件管理器与 WebDAV 共享，支持按设备设置拒绝/只读/可写，并可选使用 Tailscale 提供固定私有地址。

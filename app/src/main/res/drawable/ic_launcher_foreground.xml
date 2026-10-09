@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- folder body -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M24,38 h20 l6,6 h34 a4,4 0 0 1 4,4 v30 a4,4 0 0 1 -4,4 h-60 a4,4 0 0 1 -4,-4 v-36 a4,4 0 0 1 4,-4 z" />
+
+    <!-- cloud sitting inside the folder (white, outlined in the launcher blue) -->
+    <path
+        android:fillColor="#FF1B5E8C"
+        android:pathData="M42,78 a10,10 0 0 1 0.6,-19.95 a14,14 0 0 1 26.4,-3.1 a10,10 0 0 1 -1.4,23.05 z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M44,74 a7,7 0 0 1 0.5,-13.9 a10,10 0 0 1 19,-2.2 a7,7 0 0 1 -1,16.1 z" />
+</vector>
