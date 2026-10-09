@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101418" />
+    <link rel="stylesheet" href="/internal/insets.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>DufsBox</title>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="row">
+        <div>
+          <p class="eyebrow">ANDROID · DUFS · WEBDAV</p>
+          <h1>DufsBox</h1>
+        </div>
+        <span id="stateBadge" class="badge muted">检查中</span>
+      </header>
+
+      <section id="notice" class="notice hidden"></section>
+
+      <section class="panel">
+        <div class="row">
+          <div>
+            <p class="label">访问地址</p>
+            <a id="primaryUrl" class="url" href="#" target="_blank" rel="noreferrer">—</a>
+          </div>
+          <button id="copyUrl" class="ghost" type="button">复制</button>
+        </div>
+        <p id="allUrls" class="hint"></p>
+      </section>
+
+      <section class="actions">
+        <button id="startBtn" class="primary" type="button">启动</button>
+        <button id="stopBtn" class="ghost" type="button">停止</button>
+        <button id="restartBtn" class="ghost" type="button">重启</button>
+      </section>
+
+      <section class="panel">
+        <h2>连接设备 <span id="deviceCount" class="hint"></span></h2>
+        <p class="hint">右侧选择该设备的权限，立即生效。拒绝的设备仍会显示在这里，方便你看到是谁在被挡。</p>
+        <div id="devices" class="devices"></div>
+      </section>
+
+      <section class="panel">
+        <h2>状态</h2>
+        <div id="statusGrid" class="grid"></div>
+      </section>
+
+      <section class="panel">
+        <h2>日志</h2>
+        <div class="row wrap">
+          <select id="logLevel">
+            <option value="trace">TRACE</option>
+            <option value="debug">DEBUG</option>
+            <option value="info" selected>INFO</option>
+            <option value="warn">WARN</option>
+            <option value="error">ERROR</option>
+          </select>
+          <button id="logRefresh" class="ghost" type="button">刷新</button>
+        </div>
+        <pre id="logs" class="logs">加载中…</pre>
+      </section>
+
+      <section class="panel">
+        <h2>设置</h2>
+        <label class="field">
+          <span>共享路径</span>
+          <input id="sharePath" type="text" placeholder="/sdcard" />
+        </label>
+        <label class="field">
+          <span>共享名称</span>
+          <input id="shareName" type="text" placeholder="DufsBox" />
+        </label>
+        <label class="field">
+          <span>端口</span>
+          <input id="port" type="number" min="1" max="65000" />
+        </label>
+        <label class="field">
+          <span>共享方式</span>
+          <select id="mode">
+            <option value="lan">仅局域网</option>
+            <option value="tailscale">仅 Tailscale</option>
+            <option value="both">局域网 + Tailscale</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>认证方式</span>
+          <select id="authMode">
+            <option value="anonymous">匿名访问</option>
+            <option value="password">账号密码</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>用户名</span>
+          <input id="username" type="text" />
+        </label>
+        <label class="field">
+          <span>密码（留空表示不修改）</span>
+          <input id="password" type="password" autocomplete="new-password" />
+        </label>
+        <label class="field">
+          <span>默认设备权限</span>
+          <select id="defaultPolicy">
+            <option value="rw">可写</option>
+            <option value="ro">只读</option>
+            <option value="deny">拒绝</option>
+          </select>
+        </label>
+        <label class="switch">
+          <input id="readonlyGlobal" type="checkbox" />
+          <span>全局只读</span>
+        </label>
+        <label class="switch">
+          <input id="autostart" type="checkbox" />
+          <span>开机自启动</span>
+        </label>
+        <div class="actions">
+          <button id="saveBtn" class="primary" type="button">保存设置</button>
+          <button id="tsLogin" class="ghost" type="button">连接 Tailscale</button>
+          <button id="tsLogout" class="danger" type="button">退出 Tailscale</button>
+        </div>
+        <p class="hint">
+          改动共享路径、端口、认证或模式会让 Dufs 立即重启。
+          Tailscale 登录后会显示 100.x 地址；如果直连不通，可在 App 中启用 HTTPS Serve。
+        </p>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
